@@ -17,7 +17,7 @@ def init():
     ####################
     ### Change these ###
     ####################
-    personsFileDirectory = '/mnt/e/OneDrive/20_work/30_coding/Wichteln_Data/'
+    personsFileDirectory = ''
     personsFile = 'persons.txt'
 
     ###########################
