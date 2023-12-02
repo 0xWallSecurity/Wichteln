@@ -13,12 +13,20 @@ def init():
     global personsFile
     global personsList
     global DEBUG
+    global subject
+    global sender
+    global senderEmail
+    global password
 
     ####################
     ### Change these ###
     ####################
     personsFileDirectory = ''
     personsFile = 'persons.txt'
+    subject = 'Ho Ho Ho'
+    sender = ''
+    senderEmail = ''
+    password = '' # google app key
 
     ###########################
     ### Do NOT change these ###
