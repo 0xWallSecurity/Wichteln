@@ -11,6 +11,9 @@ def wichteln():
         foundMatch = False
         while not foundMatch:
             randomChoice = random.choice(receiverList)
+            if len(receiverList) == 1 and (randomChoice == person or randomChoice.email in person.blacklist or randomChoice.relationship in person.blacklist):
+                print(f"endless loop detected: {person.email} to {randomChoice.email}. Aborting.")
+                return {}
             if randomChoice != person and randomChoice.email not in person.blacklist and randomChoice.relationship not in person.blacklist:
                 if settings.DEBUG:
                     print(f"found mapping {person.email} to {randomChoice.email}.")
