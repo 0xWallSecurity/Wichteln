@@ -38,14 +38,33 @@ def send_mails(mapping):
         for person in mapping:
             mappedPerson = mapping.get(person)
             recipient = person.email
+            wishlist = f""
+            for wish in mappedPerson.wishlist:
+                wishlist = wishlist + f"{wish}\n"
             body = f"""
-                Ho Ho Ho {person.name},
-                Hier die Wunschliste:
-                {mappedPerson.wishlist}    
-                """
+Ho Ho Ho {person.name},
+
+In sternenklarer, dunkler Nacht,
+Ein Päckchen, das für dich erwacht.
+Geheimnisvoll und sanft verpackt,
+Die Vorfreude leise klingend lacht.
+
+Ein Rätsel, wer es wohl gesandt,
+In zarter Hülle, bunt umsäumt.
+Ein Hauch von Zauber in der Luft,
+Ein Lächeln, das die Stille rühmt.
+
+In diesem Sinne: Bitte suche dir aus den unten stehenden Wünschen einen (oder gegebenenfalls auch mehrere) aus.
+Bedenke dabei bitte unser festgelegtes Budget von maximal 30€.
+
+---
+{wishlist}---
+
+Bis zum 26. - Santa
+"""
             if settings.DEBUG:
                 print(f"{settings.sender} sends email to {recipient} / {person.name}.")
-                print(f"{mappedPerson.name} has wishlist: {mappedPerson.wishlist}")
+                print(f"{mappedPerson.name} has wishlist: {wishlist}")
 
             msg = MIMEText(body)
             msg['Subject'] = settings.subject
